@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dexor - Improved Compact Footer</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Brand Colors */
+        :root {
+            --deep-cove: #051c3c;
+            --jaffa: #f17043;
+            --moon-raker: #d8d8f8;
+            --tuna: #333546;
+            --comet: #5d627a;
+            --ship-cove: #6e8eb8;
+            --denim: #165fc1;
+            --cloud-burst: #1c344e;
+            --gold: #c9a961;
+            --cream: #faf8f5;
+            --light-bg: #f8f9fc;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        /* Demo content above footer */
+        .content-area {
+            padding: 40px 60px;
+            background: white;
+            min-height: 400px;
+        }
+        
+        .demo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--deep-cove);
+            margin-bottom: 20px;
+        }
+        
+        .demo-text {
+            font-size: 14px;
+            color: var(--tuna);
+            line-height: 1.6;
+        }
+        
+        /* ============= IMPROVED COMPACT FOOTER (90px) ============= */
+        .footer-compact {
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--cream) 100%);
+            padding: 25px 60px;
+            position: relative;
+            height: 90px;
+            border-top: 2px solid var(--gold);
+        }
+        
+        /* Subtle decorative line at top */
+        .footer-compact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        /* Main footer content wrapper */
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Left Section - Company branding (stacked) */
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 3px;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--deep-cove);
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+        
+        .footer-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--comet);
+            margin-left: 1px;
+        }
+        
+        /* Center Section - Contact info (better spacing) */
+        .footer-center {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 0 auto;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--tuna);
+            white-space: nowrap;
+        }
+        
+        .contact-icon {
+            font-size: 14px;
+            color: var(--gold);
+        }
+        
+        .contact-item a {
+            color: var(--denim);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: var(--jaffa);
+        }
+        
+        /* Right Section - Copyright (better formatting) */
+        .footer-right {
+            text-align: right;
+            max-width: 200px;
+        }
+        
+        .copyright {
+            font-size: 10px;
+            color: var(--comet);
+            line-height: 1.5;
+        }
+        
+        .copyright-main {
+            color: var(--tuna);
+            font-weight: 500;
+        }
+        
+        .copyright-sub {
+            color: var(--comet);
+            opacity: 0.8;
+        }
+        
+        /* Print optimization */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .footer-compact {
+                padding: 20px;
+                height: auto;
+                min-height: 90px;
+            }
+            
+            .footer-wrapper {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+            
+            .footer-center {
+                margin: 0;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .footer-right {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Content Area (for demonstration) -->
+    <main class="content-area">
+        <h2 class="demo-title">Quotation Content</h2>
+        <p class="demo-text">
+            This improved footer design provides better spacing between elements while maintaining 
+            a compact height of 90px. The DEXOR branding is now stacked vertically for better clarity.
+        </p>
+    </main>
+    
+    <!-- Improved Compact Footer (90px height) -->
+    <footer class="footer-compact">
+        <div class="footer-wrapper">
+            <!-- Left: Company Logo & Tagline (Stacked) -->
+            <div class="footer-left">
+                <h3 class="footer-logo">DEXOR</h3>
+                <span class="footer-tagline">Systems with Souls</span>
+            </div>
+            
+            <!-- Center: Contact Information (Better Spacing) -->
+            <div class="footer-center">
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <span>+20 15 501 42885</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🌐</span>
+                    <a href="https://www.dexor.ae">www.dexor.ae</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <a href="mailto:info@dexor.ae">info@dexor.ae</a>
+                </div>
+            </div>
+            
+            <!-- Right: Copyright (Better Formatting) -->
+            <div class="footer-right">
+                <div class="copyright">
+                    <div class="copyright-main">©️ 2025 Dexor. All rights reserved.</div>
+                    <div class="copyright-sub">Confidential and Proprietary.</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
